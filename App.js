@@ -1,16 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const heading = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement("div", { id: "childDiv" }, [
-    React.createElement("h1", { id: "headingOne" }, "This is H1 through HMR"),
-    React.createElement("h2", { id: "headingTwo" }, "This is H2"),
-  ])
+// JSX - HTML likr syntax - JSX is diffrent and React is different.
+
+const heading = <h1 className="heading">This is JSX element.</h1>;
+
+const Title = () => (
+  <div>
+    <h1> This is title component</h1>
+  </div>
+);
+
+const HeadingComponent = () => (
+  <div>
+    <h2>This is HeadingComponent </h2>
+    <Title />
+    {heading}
+  </div>
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
-
-console.log(heading);
+root.render(<HeadingComponent />);
