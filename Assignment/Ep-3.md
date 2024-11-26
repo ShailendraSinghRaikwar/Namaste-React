@@ -11,9 +11,9 @@ Component inside component is component composition.
 We can run javascipt inside JSX with {}.
 
 Component - 
-<Title/>
+<Title />
 <Title></Title>
-Title()
+Title() - We can call the function component like function.
 All three are same.
 
 

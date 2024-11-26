@@ -1,3 +1,28 @@
 .heading {
   color: blueviolet;
 }
+
+#header {
+  /* border: 2px solid darkblue; */
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  width: 12%;
+
+  /* margin-left: 0px; */
+}
+#search {
+  width: 200px;
+  height: 40px;
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto; */
+}
+
+#user-icon {
+  width: 4%;
+  /* left: 1000px;
+  position: relative; */
+}
