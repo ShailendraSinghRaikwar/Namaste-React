@@ -25,11 +25,12 @@
   /* margin-left: 0px; */
 }
 .search {
-  padding: 10px;
+  padding: 0px;
 }
 
 .res-card {
-  width: 200px;
+  width: 194px;
+  height: 420px;
 
   margin: 5px;
   padding: 5px;
@@ -55,4 +56,33 @@
   padding: 5px;
   margin: 10px;
   cursor: pointer;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shimmer-card {
+  margin: 10px;
+  width: 194px;
+  height: 400px;
+
+  background-color: #f0f0f0;
+}
+
+.login {
+  padding: 0px 20px;
+}
+
+.filter {
+  display: flex;
+}
+
+.search-box {
+  padding: 5px;
+  margin: 10px 0px 10px 10px;
+}
+.search-btn {
+  padding: 5px;
+  margin: 0px;
 }
