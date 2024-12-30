@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 let listOfRestaurantJS = [
   {
@@ -71,6 +72,14 @@ const Body = () => {
     );
   };
 
+  const handleClick = () => {
+    const newRestaurant = listOfRestaurant.filter((res) => {
+      return res.info.name.toLowerCase().includes(searchText.toLowerCase());
+    });
+    console.log(newRestaurant);
+    setFilteredRestaurant(newRestaurant);
+  };
+
   return listOfRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
@@ -86,17 +95,7 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
           ></input>
-          <button
-            className="search-btn"
-            onClick={() => {
-              console.log(searchText);
-              const filteredRestaurant = listOfRestaurant.filter((res) => {
-                res.info.name.toLowerCase().includes(searchText.toLowerCase());
-                console.log(res.info.name);
-              });
-              setFilteredRestaurant(filteredRestaurant);
-            }}
-          >
+          <button className="search-btn" onClick={handleClick}>
             Search
           </button>
         </div>
@@ -114,7 +113,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((restraunt) => (
-          <RestaurantCard key={restraunt.info.id} resData={restraunt} />
+          <Link
+            key={restraunt.info.id}
+            to={"/restaurants/" + restraunt.info.id}
+          >
+            <RestaurantCard resData={restraunt} />
+          </Link>
         ))}
       </div>
     </div>
