@@ -2,50 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
-
-let listOfRestaurantJS = [
-  {
-    info: {
-      id: "134126",
-      name: "New Zam Zam Restaurant",
-      cloudinaryImageId: "l6vlz5qwrlfmdkyivomd",
-      costForTwo: "₹300 for two",
-      cuisines: [
-        "North Indian",
-        "Mughlai",
-        "Indian",
-        "Tandoor",
-        "Chinese",
-        "Beverages",
-      ],
-      avgRating: 4.1,
-      sla: {
-        deliveryTime: 36,
-      },
-    },
-  },
-  {
-    info: {
-      id: "501801",
-      name: "Amer Bakery Hut",
-      cloudinaryImageId: "kgjzswkwmvj646ocuynb",
-      costForTwo: "₹350 for two",
-      cuisines: [
-        "Bakery",
-        "North Indian",
-        "Chinese",
-        "Fast Food",
-        "Mexican",
-        "Snacks",
-        "Beverages",
-      ],
-      avgRating: 3.5,
-      sla: {
-        deliveryTime: 14,
-      },
-    },
-  },
-];
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -79,6 +36,10 @@ const Body = () => {
     console.log(newRestaurant);
     setFilteredRestaurant(newRestaurant);
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false) return <h2>Opps!! Looks line you are offline</h2>;
 
   return listOfRestaurant.length === 0 ? (
     <Shimmer />
