@@ -14,7 +14,7 @@ const Body = () => {
     fetchData();
   }, []);
 
-  const restaurantCardPromoted = withPromoted(RestaurantCard);
+  const RestaurantCardPromoted = withPromoted(RestaurantCard);
 
   const fetchData = async () => {
     const data = await fetch(
@@ -87,7 +87,7 @@ const Body = () => {
             to={"/restaurants/" + restraunt.info.id}
           >
             {restraunt.info.isOpen ? (
-              <restaurantCardPromoted resData={restraunt} />
+              <RestaurantCardPromoted resData={restraunt} />
             ) : (
               <RestaurantCard resData={restraunt} />
             )}
