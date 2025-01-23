@@ -32,7 +32,7 @@ export const Header = () => {
           <li className="px-4">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-4">Cart</li>
+          <li className="px-4 font-bold">Cart (0 Items)</li>
           <button
             className="px-4"
             onClick={() => {
